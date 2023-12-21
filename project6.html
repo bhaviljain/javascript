@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project6</title>
+</head>
+<body style="background-color: black; color: white;">
+    <div id="insert">
+        <div class="key">Press the key</div>
+    </div>
+    <script>
+        const insert = document.getElementById('insert')
+        window.addEventListener('keyup',function(e){
+            insert.innerHTML =`
+            <div class = 'color'>
+                <table>
+  <tr>
+    <th>key</th>
+    <th>keycode</th>
+    <th>code</th>
+  </tr>
+  <tr>
+    <td>${e.key === " " ? " space": e.key}</td>
+    <td>${e.keyCode}</td>
+    <td>${e.code}</td>
+  </tr>
+ 
+</table>
+                </div>
+                `
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async2</title>
+</head>
+<body>
+  <h2>Bhavil 20 lpa</h2>  
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <script>
+    const satDate = (str)=>{
+        console.log(str, Date.now());
+    }
+  let intervalid =  setInterval(satDate ,500);
+
+    document.querySelector('#start').addEventListener
+    ('click',function(){
+        setInterval(intervalid)
+    })
+    document.querySelector('#stop').addEventListener
+    ('click',function(){
+        clearInterval(intervalid)
+    })
+  </script>
+</body>
+</html>

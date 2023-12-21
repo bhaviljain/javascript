@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h2>Bhavil Jain 20LPA</h2>
+    <button id="stop">stop</button>
+    <script>
+        const bhavil =function(){
+            console.log("Bhavil");
+        }
+        const changeText = function(){
+            document.querySelector('h2').innerHTML ="Best JS series"
+
+        }
+       let one= setTimeout(changeText,2000)
+    document.querySelector('#stop').addEventListener('click',function(){
+      clearTimeout(one)
+      console.log(("stopped"));  
+    })
+</script>
+</body>
+</html>

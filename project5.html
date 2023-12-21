@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+</head>
+
+<body style="background-color: black; color: white;">
+    <h2>Start and Stop Project</h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <script>
+     //generate random color
+     let randomcolor = function(){
+     let hex = '0123456789ABCDEF'
+     let color = '#'
+     for(let i =0; i<6 ; i++)
+     {
+color+=hex[Math.ceil(Math.random()*10+1)]
+     }
+     return color;
+     };
+     let intervalid;
+const startchange = function(){
+    if(intervalid==null){
+    intervalid = setInterval(changebgcolor,1000)
+    }
+    function changebgcolor(){
+        document.body.style.backgroundColor = randomcolor();
+
+    }
+}
+const stopchange = function(){
+clearInterval(intervalid)
+intervalid = null;
+}
+document.querySelector('#start').addEventListener
+('click',startchange)     
+document.querySelector('#stop')  .addEventListener
+('click',stopchange) 
+
+
+
+
+
+
+
+
+   </script>
+</body>
+
+</html>

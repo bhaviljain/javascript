@@ -24,11 +24,13 @@ const coding =["js", "cpp", "java","Kotlin","Python"]
 const mycoding =[
 
     {
-       "Lag name" : "javascript" ,
+       Lagname : "javascript" ,
        lanfile : "java"
     }
 ]
 mycoding.forEach((value)=>{
-console.log(value["Lag name"]);
+console.log(value["Lagname"]);
+console.log(value["lanfile"]);
+
 
 })
