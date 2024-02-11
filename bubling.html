@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <button id="btn">Like Me</button>
+        <a href="home.html">Home</a>
+    </div>
+    <script>
+let first = document.querySelector('div')
+let btn = document.querySelector('button')
+
+
+
+
+//capturing
+//  first.addEventListener('click',()=>{
+// console.log("div");
+
+//  },true)
+//  btn.addEventListener('click',()=>{
+//     event.stopPropagation() 
+// console.log("button");
+//  },true)
+
+//bubbling
+// first.addEventListener('click',()=>{
+// console.log("div");
+
+//  })
+//  btn.addEventListener('click',()=>{
+//     event.stopPropagation()
+// console.log("button");
+//  })
+
+// btn.addEventListener('click',()=>{
+// console.log("button");
+
+//  })
+//  btn.addEventListener('click',()=>{
+//     event.stopImmediatePropagation()
+// console.log("button1");
+//  })
+//  btn.addEventListener('click',()=>{
+// console.log("button2");
+//  })
+
+let a = document.querySelector('a')
+a.addEventListener('click',()=>{
+    event.preventDefault()
+console.log("button2");
+ })
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="category">
+        <li id="laptops">laptops</li>
+        <li id="camera">camera</li>
+        <li id="shoes">shoes</li>
+    </div>
+
+    <script>
+        var category = document.querySelector("#category")
+
+        category.addEventListener('click', (e)=>{
+            window.location.href='/' + e.target.id
+            console.log(e);
+        })
+    </script>
+</body>
+</html>

@@ -8,7 +8,7 @@ console.log(newSet);
 
 const staff = ['waiter' , 'manager' ,'waiter']
 
-const StaffUique = [...new Set(staff)]
+const StaffUique = [...new Set(staff)] //spread operator is madad se object ko array kiya
 console.log(StaffUique);
 console.log(typeof(StaffUique)); //object hai isko array mein convert karna hai
 
