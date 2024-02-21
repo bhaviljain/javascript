@@ -237,6 +237,8 @@
   
   .operation--close {
     background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+    height: 120%;
+    
   }
   
   h2 {
@@ -251,6 +253,7 @@
     grid-template-columns: 2.5fr 2.5fr 1fr;
     grid-template-rows: auto auto;
     gap: 0.4rem 1rem;
+    
   }
   
   /* Exceptions for interst */
@@ -283,6 +286,7 @@
   .form__label {
     font-size: 1.3rem;
     text-align: center;
+    
   }
   
   .form__btn {
@@ -309,3 +313,9 @@
   .timer {
     font-weight: 600;
   }
+ .deleted{
+  font-size: 13px;
+  text-align: center;
+  margin-right: 12
+  px;  
+ }

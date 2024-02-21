@@ -1,5 +1,3 @@
-'use strict';
-
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // BANKIST APP
@@ -62,15 +60,22 @@ const inputTransferAmount = document.querySelector('.form__input--amount');
 const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
-
+const deleted = document.querySelector(".deleted")
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-const displayMovement = function (movements){
+const displayMovement = function (movements , sort = false){
     containerMovements.innerHTML = "";
-    movements.forEach(function(mov , i){
-    const type = mov > 0 ? "deposite" : "withdrawal"
+
+  const movs = sort ? movements.slice().sort((a,b)=>
+  a - b) : movements;
+
+  movs.forEach(function(mov , i){
+    const type = mov > 0 ? "deposite" : "withdrawal"  
+
+
+  
 
         const html =`
         <div class="movements__row">
@@ -134,7 +139,7 @@ CurrentAccount = accounts.find(
 console.log(CurrentAccount);
 if(CurrentAccount?.pin === Number(inputLoginPin.value)){
   labelWelcome.textContent = `Welcome
-   ${CurrentAccount.owner.split(' ')[0]}!`
+   ${CurrentAccount.owner.split(' ')}!`
    inputLoginUsername.value = inputLoginPin.value = " ";
    inputLoginPin.blur()
    displayMovement(CurrentAccount.movements)
@@ -220,7 +225,7 @@ const name = accounts.find(acc => acc.owner === "Jessica Davis")
 console.log(name);
 
 
-btnTransfer.addEventListener("click", function(e) {
+btnTransfer.addEventListener("onclick", function(e) {
   e.preventDefault();
  const amount = Number(inputTransferAmount.value)
  const reciverAcc = accounts.find(acc => acc.username === inputTransferTo.value);
@@ -239,6 +244,66 @@ btnTransfer.addEventListener("click", function(e) {
  inputTransferAmount.value = inputTransferTo.value = " ";
 })
   
+//****************Close acct */
+btnClose.addEventListener("click", function(e){
+  e.preventDefault()
+if(inputCloseUsername.value === CurrentAccount.username && Number(inputClosePin.value) === CurrentAccount.pin)
+  {
+    const index = accounts.findIndex((deleteAcct)=>{
+    return deleteAcct.username === CurrentAccount.username
+    })
+   accounts.splice(index,1)
+   deleted.textContent = `account deleted`.toUpperCase()
+  }
+  inputCloseUsername.value = inputClosePin.value = "";
+  containerApp.style.opacity =0;
+  labelWelcome.textContent = `Kindly Sign Up`
 
+})
+// lOAN *********
+btnLoan.addEventListener("click", function(e){
+e.preventDefault()
+const amt = Number(inputLoanAmount.value)
+
+if(amt > 0 && amt < CurrentAccount.balance * 0.5){
+  CurrentAccount.movements.push(amt)
+  displayMovement(CurrentAccount.movements)
+  calcDisplayBlances(CurrentAccount)
+  calcDisplaySummary(CurrentAccount)
+  calcDisplayOut(CurrentAccount)
+  interest(CurrentAccount)
+  inputLoanAmount.value = " ";
+}
+})
+
+const arr= [[2,3,4], [5,6,7], [8,9,10,[1,2,3], [4,5,6]]]
+
+console.log(arr.flat(2)); //sabko ek array me convert karta hai.
+
+const overallBal= accounts.flatMap(acc =>acc.movements)
+.reduce((acc,mov)=>{
+  return acc + mov
+},0)
+console.log(overallBal);
+
+//Sorting array
+movements.sort((a,b)=>{
+  return b - a
+})
+console.log(movements);
+
+let sorted = false
+btnSort.addEventListener("click", function(e)
+{
+e.preventDefault();
+displayMovement(CurrentAccount.movements, !sorted)  
+sorted =!sorted
+})
+
+// const overallBal= accounts.flatMap(acc =>acc.movements)
+// .reduce((acc,mov)=>{
+//   return acc + mov
+// },0) //flatMap goes only one level deeper
+// console.log(overallBal);
 //  Jonas Schmedtmann
  // Jessica Davis    ///////////////////////////
