@@ -1,28 +1,26 @@
-const btn = document.querySelector('.increment')
-const btnPresses = document.querySelector('.increment-pressed')
-const count = document.querySelector('.increment-count')
+
+const handler =
+async(e)=>{
+        const res = await fetch(`https://dummyjson.com/products/search?q=${e.target.value}`)
+        const data = await res.json()
+    
+     console.log(e.target.value);
+     console.log(data);
+     
+    }
 
 
-let pressCount = 0
-let triggerCount = 0
-
-
-const Mydebounce = (cb, d)=>{
+const debounce =function  (fn, delay) {
     let timer;
-    return function (...args){
-    if(timer) clearTimeout(timer)
-   timer = setTimeout(()=>{
-   cb(...args)
-},d)
+    return function (...args) {
+    clearTimeout(timer)
+   timer = setTimeout(() => {
+        fn(...args)
+    }, delay);
+    }
 }
-}
 
 
-const deb = Mydebounce (()=>{
-    count.innerHTML = ++pressCount
-
-},800)
-btn.addEventListener('click', () => {
-    btnPresses.innerHTML = ++triggerCount
-    deb()
-})
+const debouned = debounce(handler,1000)
+let inp = document.querySelector('input')
+inp.addEventListener("input",debouned)
