@@ -90,3 +90,14 @@ fetch('https://jsonplaceholder.typicode.com/users')
 .catch((error)=>{
   console.log(error);
 })
+
+
+
+const cart = ['']
+createOrder(cart,function(orderID){
+    processPayment(orderID,function(payInfo){
+        orderSum(payInfo,function(){
+            showBal()
+        })
+    })
+})
