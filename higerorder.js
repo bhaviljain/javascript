@@ -46,3 +46,40 @@ console.log(radius.calArea(areaofCircle));
 //here there is no repeatable code
 //every fucntion has its own task
 //chech the same in askhay sajni or free code camp
+
+
+const data = [10,20,30,40]
+
+function Calsquare (x)
+{
+ return x * 2;
+}
+function Caladd (x)
+{
+ return x + 2;
+}
+
+Array.prototype.square = function(calculate){
+    let op = []
+    for(let i =0; i<this.length; i++)
+    {
+        op.push(calculate(this[i]))
+    }
+    return op
+}
+
+console.log(data.square(Calsquare))
+// console.log(square(data,Caladd));
+
+// console.log(Caladd(data));
+
+
+// const add = function(a){
+//     let op = []
+//     for(let i =0; i<a.length; i++)
+//     {
+//         op.push(a[i]+2)
+//     }
+//     return op
+// }
+// console.log(add(data));

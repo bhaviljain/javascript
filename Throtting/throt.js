@@ -1,4 +1,4 @@
-myThrot = (fn,d) =>{
+const myThrot = (fn,d) =>{
 
     return function(...args)
     {   
@@ -16,6 +16,7 @@ const myFun = myThrot (()=>{
      button = document.querySelector('button').disabled = false
     console.log("hello");
 },3000)
+
 
 let myFuns = () =>{
     console.count("throttle")

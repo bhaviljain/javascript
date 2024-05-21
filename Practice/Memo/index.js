@@ -15,7 +15,7 @@
 
 //using cache
 
-function fibMemo (n ,memo = {}){
+function fibMemo (n ,memo = {0:0 ,1:1}){
     if(n<=1)
     {
         return n;
