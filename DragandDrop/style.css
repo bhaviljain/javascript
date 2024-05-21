@@ -1,0 +1,31 @@
+.container{
+    background: gray;
+    height: 95vh;
+    width: 100%;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+#left , #right{
+    height: 60%;
+    width: 20%;
+    background-color: red;
+   
+
+}
+.list{
+    background-color: black;
+    height: 40px;
+    margin: 30px;
+    color: white;
+    display: flex;
+    align-items: center;
+    cursor: grab;
+    padding-left: 10px;
+    gap: 20px;
+}
+.list img{
+    height:20%;
+    
+}
